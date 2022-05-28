@@ -1015,8 +1015,9 @@ NSString *const errorMethod = @"error";
     return NO;
   }
 
-  NSDictionary *videoSettings = [_captureVideoOutput
-      recommendedVideoSettingsForAssetWriterWithOutputFileType:AVFileTypeMPEG4];
+  NSDictionary *videoSettings = 
+      [_captureVideoOutput recommendedVideoSettingsForVideoCodecType:AVVideoCodecTypeH264
+                                              assetWriterOutputFileType:AVFileTypeMPEG4];
   _videoWriterInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo
                                                          outputSettings:videoSettings];
 
